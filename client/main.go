@@ -15,7 +15,7 @@ func main() {
 	styles := document.Call("createElement", "style")
 	styles.Set("innerHTML", `
 		.block {
-			border: 1px solid black; color: white; bakground: black;
+			border: 1px solid black; color: red; bakground: green;
 		}
 	
 	`)

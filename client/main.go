@@ -2,24 +2,21 @@ package main
 
 import (
 	"fmt"
-	//"syscall/js"
+	"syscall/js"
 )
 
+var document js.Value
+
+func submit(val js.Value, val2 []js.Value) interface{} {
+	fmt.Println("aaaaaaa")
+	fmt.Println(document.Call("getElementById", "code"))
+	return nil
+}
+func registerCallbacks() {
+	js.Global().Set("submit", js.FuncOf(submit))
+}
+
 func main() {
-	/*md := `c = \\pm\\sqrt{a^2 + b^2} \newline 
-    Eq1 = 1.23 * 5^5555555555 * 5.3 \newline \dfrac {2323}{2323}
-    Eq2 = 3.21 * 2^2 * 3.5 \\newline`*/
-	fmt.Println("------------------")
-	//document := js.Global().Get("document")
-
-	
-	//problem_text := document.Call("getElementById", "problem_text")
-
-	//fmt.Println(global.Get("relood"))
-
-	//js.Global().Call("relood")
-
-
-	//inner := js.Global().Get("katex").Call("renderToString", js.Global().Get("innerHTML"))
-	//js.Global().Set("innerHTML", inner)
+	registerCallbacks()
+	document = js.Global().Get("document")
 }

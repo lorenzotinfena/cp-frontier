@@ -12,17 +12,12 @@
         integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"
         crossorigin="anonymous"></script>
 
-
     <meta charset="utf-8" />
     <script src="wasm_exec.js"></script>
     <script>
         const go = new Go();
         WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
             go.run(result.instance);
-            console.log("dfdsffsd")
-            //console.log(document.body.innerHTML)
-            //document.body.innerHTML = katex.renderToString(document.body.innerHTML)
-            //katex_elements = document.getElementsByName("katex_element")
             renderMathInElement(document.body, {
                     delimiters: [
                         {left: '$$', right: '$$', display: true},
@@ -36,15 +31,26 @@
     <title cp frontier></title>
 </head>
 <body>
-    \vec v
+Problem:
  <div id="problem_text">
-     fdsafesfesfsdff
-     \(\vec v \dfrac{REALEEEEE}{2332323}\)
-     <div name="katex_element">\vec v</div>
-     altro
-     <div name="katex_element">\vec v dsfdsf \dfrac{23}{2332323}</div>
-     dsfdsf
+     Sample... $\vec{test}$
  </div>
+ Your code goes here:
+ <br/>
+ <textarea id="code" rows="5" cols="60" name="text" placeholder="Enter text">
+    package main
+
+    import (
+        "fmt"
+    )
+    
+    func main() {
+        fmt.Println("Test $ciao$ ")
+    }
+    
+ </textarea>
+ <br/>
+ <button type="button" onclick="submit();">Sumbit</button>
 </body>
 
 </html>

@@ -2,36 +2,24 @@ package main
 
 import (
 	"fmt"
-	"syscall/js"
-	"github.com/gomarkdown/markdown/parser"
-	"github.com/gomarkdown/markdown"
+	//"syscall/js"
 )
 
 func main() {
-	fmt.Println("....")
-
-	extensions := parser.CommonExtensions | parser.AutoHeadingIDs
-	pa := parser.NewWithExtensions(extensions)
-
-
-	
-	md := []byte(`
-	## markdown document
-	
-	# test
-	
-	ulla
-	
-	- fdsaf
-	- fdafdsf
-	`)
-	h := string(markdown.ToHTML(md, pa, nil))
+	/*md := `c = \\pm\\sqrt{a^2 + b^2} \newline 
+    Eq1 = 1.23 * 5^5555555555 * 5.3 \newline \dfrac {2323}{2323}
+    Eq2 = 3.21 * 2^2 * 3.5 \\newline`*/
 	fmt.Println("------------------")
-	fmt.Println(h)
-	document := js.Global().Get("document")
-	p := document.Call("createElement", "p")
-	p.Set("innerHTML", h)
+	//document := js.Global().Get("document")
+
+	
+	//problem_text := document.Call("getElementById", "problem_text")
+
+	//fmt.Println(global.Get("relood"))
+
+	//js.Global().Call("relood")
 
 
-	document.Get("body").Call("appendChild", p)
+	//inner := js.Global().Get("katex").Call("renderToString", js.Global().Get("innerHTML"))
+	//js.Global().Set("innerHTML", inner)
 }

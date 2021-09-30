@@ -1,9 +1,11 @@
+// compile with https://github.com/namely/docker-protoc
+
 syntax = "proto3";
 
 option go_package = "./main";
 
-service Runner {
-  rpc Run (Code) returns (Empty) {}
+service Service {
+  rpc Run (Code) returns (SubmissionResult) {}
 }
 
 message Code {
@@ -17,8 +19,8 @@ message SubmissionResult {
 }
 
 message ScoreParameters {
-  uint32 time_ms = 2;
-  uint64 = 3;
+  uint32 time_ms = 1;
+  uint64 memory_byte = 2;
 }
 
 message Empty { }

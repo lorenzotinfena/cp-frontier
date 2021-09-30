@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "./main";
+
+service Runner {
+  rpc Run (Code) returns (Empty) {}
+}
+
+message Code {
+  string code = 1;
+}
+
+message SubmissionResult {
+  bool passed = 1;
+  uint32 score = 2;
+  ScoreParameters ScoreParameters = 3;
+}
+
+message ScoreParameters {
+  uint32 time_ms = 2;
+  uint64 = 3;
+}
+
+message Empty { }

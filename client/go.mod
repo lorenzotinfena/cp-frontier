@@ -1,4 +1,4 @@
-module github.com/lorenzotinfena/cp-frontier
+module github.com/lorenzotinfena/cp-frontier/client
 
 go 1.17
 

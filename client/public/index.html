@@ -19,25 +19,27 @@
         WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
             go.run(result.instance);
             renderMathInElement(document.body, {
-                    delimiters: [
-                        {left: '$$', right: '$$', display: true},
-                        {left: '$', right: '$', display: false},
-                    ],
-                    throwOnError : false
-                    });
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                ],
+                throwOnError: false
+            });
         });
     </script>
 
     <title cp frontier></title>
 </head>
+
 <body>
-Problem:
- <div id="problem_text">
-     Sample... $\vec{test}$
- </div>
- Your code goes here:
- <br/>
- <textarea id="code" rows="5" cols="60" name="text" placeholder="Enter text">
+    Problem:
+    <div id="problem_text">
+        Sample... $\vec{test}$
+        $$\mathbb{Z}/n\mathbb{Z} 1+n\mathbb{Z} \color{red}{\mathbb{Z}/n\mathbb{Z}\cong\mathbb{Z}_n}$$
+    </div>
+    Your code goes here:
+    <br />
+    <textarea id="code" rows="5" cols="60" name="text" placeholder="Enter text">
     package main
 
     import (
@@ -49,8 +51,8 @@ Problem:
     }
     
  </textarea>
- <br/>
- <button type="button" onclick="submit();">Sumbit</button>
+    <br />
+    <button type="button" onclick="submit();">Sumbit</button>
 </body>
 
 </html>

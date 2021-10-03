@@ -9,7 +9,10 @@ var document js.Value
 
 func submit(val js.Value, val2 []js.Value) interface{} {
 	fmt.Println("aaaaaaa")
-	fmt.Println(document.Call("getElementById", "code"))
+	code := document.Call("getElementById", "code")
+	Code := js.Global().Get("Code")
+	Code.Call("setCode", code)
+	fmt.Println(Code.Call("getCode"))
 	return nil
 }
 func registerCallbacks() {
@@ -17,6 +20,7 @@ func registerCallbacks() {
 }
 
 func main() {
+	c := make(chan struct{}, 0)
 	registerCallbacks()
-	document = js.Global().Get("document")
+	<-c
 }

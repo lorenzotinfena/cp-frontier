@@ -14,7 +14,10 @@
 
     <meta charset="utf-8" />
     <script src="wasm_exec.js"></script>
+    <script src="./dist/main.js"></script>
     <script>
+
+
         const go = new Go();
         WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
             go.run(result.instance);
@@ -26,8 +29,29 @@
                 throwOnError: false
             });
         });
-    </script>
+        // see https://github.com/grpc/grpc-web
+        // see https://github.com/grpc/grpc-web/blob/master/net/grpc/gateway/examples/helloworld
 
+/*
+                    const {Service} = require('protos/service_grpc_web_pb.js');
+        
+                    var client = new GreeterClient('http://' + window.location.hostname + ':8080',
+                                                null, null);
+        
+                    // simple unary call
+                    var code = new Code();
+                    code.
+                    request.setName('World');
+        
+                    client.sayHello(request, {}, (err, response) => {
+                    if (err) {
+                        console.log(`Unexpected error for sayHello: code = ${err.code}` +
+                                    `, message = "${err.message}"`);
+                    } else {
+                        console.log(response.getMessage());
+                    }
+                    });*/
+    </script>
     <title cp frontier></title>
 </head>
 
